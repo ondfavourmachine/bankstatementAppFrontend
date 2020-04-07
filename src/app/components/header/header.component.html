@@ -1,0 +1,185 @@
+<!-- <header class="u-header">
+  <div class="u-header-left">
+    <a class="u-header-logo" href="index-2.html">
+      
+    </a>
+  </div>
+
+  <div class="u-header-middle">
+   
+
+    <div
+      class="u-header-right"
+      data-search-mobile-invoker="#headerSearchMobileInvoker"
+      data-search-target="#headerSearch"
+    >
+     
+
+      <div id="headerSearch" class="u-header-search-form">
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="u-header-right">
+  
+
+    <div class="dropdown mr-5" id="outerShell" style="">
+      <div style="">
+        <a routerLink=""
+          ><img
+            width="150"
+            height="60px"
+            src="../../../assets/renamed/images/logo-small.png"
+            alt=""
+        /></a>
+      </div>
+      <p class="u-header-search" style="margin-bottom: 1px;">
+        <small [ngClass]="color" style="font-size: 1.15rem;"> </small>
+      </p>
+      <div id="innerShell" style="text-align: right;">
+        <a
+          class="link-muted d-flex align-items-center"
+          href="#!"
+          role="button"
+          id="dropdownMenuLink"
+          aria-haspopup="true"
+          aria-expanded="true"
+          data-toggle="dropdown"
+        >
+          <img
+            class="u-avatar--xs img-fluid rounded-circle mr-2"
+            src="assets/img/avatars/img1.jpg"
+            alt="User Profile"
+          />
+          
+        </a>
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            style="-webkit-appearance: none;"
+          >
+            {{ email }}
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            style="width: 260px; transform: translate3d(163px, 34px, 0px);"
+          >
+            
+            <div class="card">
+              <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-3">
+                    <a
+                      class="d-flex align-items-center link-dark"
+                      (click)="routeToHome()"
+                      style="cursor: pointer"
+                    >
+                      <span class="h3 mb-0"
+                        ><i class="far fa-user-circle text-muted mr-3"></i
+                      ></span>
+                      Home
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a
+                      class="d-flex align-items-center link-dark"
+                      (click)="routeToProfile()"
+                      style="cursor: pointer"
+                    >
+                      <span class="h3 mb-0"
+                        ><i class="far fa-user-circle text-muted mr-3"></i
+                      ></span>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a
+                      class="d-flex align-items-center link-dark"
+                      (click)="routeToBilling()"
+                      style="cursor: pointer"
+                    >
+                      <span class="h3 mb-0"
+                        ><i class="far fa-user-circle text-muted mr-3"></i
+                      ></span>
+                      Change Plan
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a
+                      class="d-flex align-items-center link-dark"
+                      style="cursor: pointer"
+                      (click)="routeToUserSettings()"
+                    >
+                      <span class="h3 mb-0"
+                        ><i class="far fa-list-alt text-muted mr-3"></i
+                      ></span>
+                      Settings
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      style="cursor: pointer"
+                      class="d-flex align-items-center link-dark"
+                      (click)="signout()"
+                    >
+                      <span class="h3 mb-0"
+                        ><i class="far fa-share-square text-muted mr-3"></i
+                      ></span>
+                      Sign Out
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  </div>
+</header> -->
+
+<header>
+  <div (click)="toggleDropdown()" id="headerMain" class="row header-main">
+    <div class="header__left-item">
+      <img src="../../../assets/img/logo.png" alt="" class="logo" />
+      <!-- <input type="search" name="" id=""> -->
+    </div>
+
+    <small></small>
+    <div class="header__right-item">
+      <div class="ui dropdown">
+        <i class="user circle icon"></i>
+        <i class="dropdown icon"></i>
+        <div class="menu left transition hidden" style="width: 150px">
+          <div (click)="routeToHome()" class="item">
+            <i style="color:#ff9800" class="home icon"> </i> <span>Home</span>
+          </div>
+          <div (click)="routeToProfile()" class="item">
+            <i style="color:#ff9800" class="list alternate icon"> </i>
+            <span>Dashboard</span>
+          </div>
+          <div (click)="routeToBilling()" class="item">
+            <i style="color:#ff9800" class="exchange icon"> </i>
+            <span>Change Plan </span>
+          </div>
+          <!-- <div (click)="routeToUserSettings('.settings')" class="item settings">
+            <i style="color:#ff9800" class="cog icon"></i>
+            <span>Settings </span>
+          </div> -->
+          <div (click)="signout()" class="item">
+            <i style="color:#ff9800" class="sign-out icon"></i>
+            <span> Sign Out</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

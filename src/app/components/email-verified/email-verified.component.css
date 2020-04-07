@@ -1,0 +1,32 @@
+p > a {
+  background: #fde8c8 !important;
+  font-size: 1.5rem !important;
+  padding: 1rem !important;
+  border-radius: 25px !important;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+p > a:hover {
+  background-color: #ff9800 !important;
+  color: white;
+}
+
+div.divSecond {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+
+div.divFirst {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+div.divSecond > p:nth-child(1) {
+  flex-basis: 1 !important;
+  font-size: 30px !important;
+  align-self: center !important;
+}

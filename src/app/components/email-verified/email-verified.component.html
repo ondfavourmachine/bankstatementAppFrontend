@@ -1,0 +1,43 @@
+<div
+  class="container-fluid w-100"
+  role="main"
+  style="background-color: #f6f9fc"
+>
+  <div class="row py-5 mt-5">
+    <div
+      class="col-sm-6 offset-sm-1 col-md-6 offset-md-1 col-lg-8 offset-lg-2 align-self-center py-5 mt-3 divFirst"
+      style=""
+    >
+      <div [ngSwitch]="dontShow">
+        <div *ngSwitchCase="'yes'">
+          <app-large-loader></app-large-loader>
+        </div>
+        <div *ngSwitchCase="'no'">
+          <img
+            class="position-relative u-z-index-3 mx-5"
+            src="../../../assets/svg/mockups/email-verification.svg"
+            alt="Image description"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 divSecond" style="">
+      <div [ngSwitch]="dontShow" class="align-self-center">
+        <div *ngSwitchCase="'yes'">
+          <p class="py-3" style="">
+            <strong>Please wait!</strong> while we verify your email...
+          </p>
+        </div>
+
+        <div *ngSwitchCase="'no'" class="align-self-center">
+          <p id="report">
+            <strong>Congratulations!</strong> Your email has been verified.
+          </p>
+          <p style="align-self: center; text-align: center">
+            <a (click)="goback()"> Go back</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

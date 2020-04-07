@@ -1,0 +1,239 @@
+<!-- <main class="container-fluid w-100" role="main">
+  <div class="row">
+    <div
+      class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh"
+    >
+      <a style="margin-top: 4rem;" class="u-login-form py-5 mb-3" routerLink="">
+        <img
+          class="img-fluid"
+          src="../../../assets/renamed/images/logo-small.png"
+          width="120"
+          alt="Credit Clan"
+          alt=""
+        />
+      </a>
+
+      <div class="u-login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)">
+          <div
+            *ngIf="alertContainer?.instance"
+            class="alert"
+            [ngClass]="alertContainer?.instance?.errorOrSuccess"
+            role="alert"
+          >
+            <i [ngClass]="alertContainer?.instance?.title"></i>
+            <span>{{ alertContainer?.instance?.message }}</span>
+          
+            <button
+              type="button"
+              class="close"
+              aria-label="Close"
+              data-dismiss="alert"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="mb-3">
+            <h1 class="h2">Welcome Back!</h1>
+            <p class="small">
+              Login to your dashboard with your registered email address and
+              password.
+            </p>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="email">Your email</label>
+            <input
+              id="email"
+              class="form-control"
+              name="email"
+              type="email"
+              placeholder="john.doe@example.com"
+              formControlName="email"
+            />
+            <div
+              *ngIf="email.touched && email.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="emailIsRequired()">
+                Your email is required!</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              class="form-control"
+              name="password"
+              type="password"
+              placeholder="Your password"
+              formControlName="password"
+            />
+            <div
+              *ngIf="password.touched && password.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="passwordIsRequired()">
+                Your password is required!</small
+              >
+            </div>
+          </div>
+
+          <div
+            class="form-group d-flex justify-content-between align-items-center mb-4"
+          >
+            <a class="link-muted small" routerLink="/forgotPassword"
+              >Forgot Password?</a
+            >
+          </div>
+
+          <button
+            style="background-color:#363795"
+            id="loginButton"
+            class="btn btn-primary btn-block mb-4"
+            [disabled]="!loginForm.valid"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+
+        <p class="small">
+          Don’t have an account?
+          <a routerLink="/register">Sign Up here</a>
+        </p>
+      </div>
+
+      <div class="u-login-form text-muted py-3 mt-auto"></div>
+    </div>
+
+    <div
+      class="col-lg-6 d-none d-lg-flex flex-column align-items-center justify-content-center bg-light"
+    >
+      <img
+        class="img-fluid position-relative u-z-index-3 mx-5"
+        src="./assets/svg/mockups/Login.svg"
+        alt="Image description"
+      />
+
+      <figure class="u-shape u-shape--top-right u-shape--position-5">
+        <img src="./assets/svg/shapes/shape-1.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-left u-shape--position-6">
+        <img src="./assets/svg/shapes/shape-2.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-right u-shape--position-7">
+        <img src="./assets/svg/shapes/shape-3.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--bottom-left u-shape--position-8">
+        <img src="./assets/svg/shapes/shape-4.svg" alt="Image description" />
+      </figure>
+    </div>
+  </div>
+</main> -->
+
+<div class="form-body">
+  <div class="website-logo">
+    <a routerLink="/home">
+      <div class="logo">
+        <img
+          class="logo-size"
+          src="../../../assets/img/logo-small.png"
+          alt="logo"
+        />
+      </div>
+    </a>
+  </div>
+  <div class="row">
+    <div class="img-holder">
+      <div class="bg"></div>
+      <div class="info-holder">
+        <img src="../../../assets/img/graphic1.svg" alt="" />
+      </div>
+    </div>
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Welcome Back!</h3>
+          <p>
+            Login to your dashboard with your registered email address and
+            password.
+          </p>
+          <div class="page-links">
+            <a routerLink="/login" class="active">Login</a
+            ><a routerLink="/register">Register</a>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)">
+            <div
+              *ngIf="alertContainer?.instance"
+              class="alert"
+              [ngClass]="alertContainer?.instance?.errorOrSuccess"
+              role="alert"
+            >
+              <i [ngClass]="alertContainer?.instance?.title"></i>
+              <span style="line-height: 1">{{
+                alertContainer?.instance?.message
+              }}</span>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                data-dismiss="alert"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <input
+              class="form-control"
+              type="text"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="john.doe@example.com"
+              formControlName="email"
+            />
+            <div
+              *ngIf="email.touched && email.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="emailIsRequired()">
+                Your email is required!</small
+              >
+            </div>
+            <input
+              id="password"
+              class="form-control"
+              name="password"
+              type="password"
+              placeholder="Your password"
+              formControlName="password"
+              class="form-control"
+            />
+
+            <div
+              *ngIf="password.touched && password.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="passwordIsRequired()">
+                Your password is required!</small
+              >
+            </div>
+            <div class="form-button">
+              <button id="loginButton" type="submit" class="ibtn">Login</button>
+              <a routerLink="/forgotPassword">Forget password?</a>
+            </div>
+          </form>
+          <div class="other-links">
+            <br />
+            <p>
+              Don't have an account?
+              <a routerLink="/register">&nbsp;Sign Up Here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

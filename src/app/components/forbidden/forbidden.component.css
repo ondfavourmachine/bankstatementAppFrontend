@@ -1,0 +1,4 @@
+.u-error__text a:hover {
+  text-decoration: underline !important;
+  color: #393795 !important;
+}

@@ -1,0 +1,115 @@
+<main class="container-fluid w-100" role="main" style="position: relative;">
+  <div class="row">
+    <div
+      style="
+      top: 10px;
+      z-index: 30;
+      position: absolute;
+      "
+      class="col-lg-12 col-md-12 col-sm-12 d-none d-lg-flex flex-column align-items-center justify-content-center"
+    >
+      <div
+        style="color: black; border: none;"
+        *ngIf="alertContainer?.instance"
+        class="alert"
+        [ngClass]="alertContainer?.instance?.errorOrSuccess"
+        role="alert"
+      >
+        <i class="far fa-handshake alert-icon mr-3"></i>
+        <span style="padding-right: 10px;">{{
+          alertContainer?.instance?.message
+        }}</span>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          data-dismiss="alert"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="col-lg-6 d-none d-lg-flex flex-column align-items-center justify-content-center bg-light"
+    >
+      <img
+        class="img-fluid position-relative u-z-index-3 mx-5"
+        src="assets/svg/mockups/welcomeToCreditClan.svg"
+        alt="Image description"
+      />
+
+      <figure class="u-shape u-shape--top-right u-shape--position-5">
+        <img src="assets/svg/shapes/shape-1.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-left u-shape--position-6">
+        <img src="assets/svg/shapes/shape-2.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-right u-shape--position-7">
+        <img src="assets/svg/shapes/shape-3.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--bottom-left u-shape--position-8">
+        <img src="assets/svg/shapes/shape-4.svg" alt="Image description" />
+      </figure>
+    </div>
+
+    <div
+      class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh"
+    >
+      <a class="u-login-form py-3 mb-auto" href="index-2.html">
+        <!-- <img
+            class="img-fluid"
+            src="assets/img/logo.png"
+            width="160"
+            alt="Stream Dashboard UI Kit"
+          /> -->
+      </a>
+
+      <div class="u-login-form">
+        <h1 class="h1">Great! You have successfully signed up</h1>
+        <p class="small">
+          if you decide to choose a plan, you can click the topup button with in
+          your dashboard, to get started.
+        </p>
+
+        <p class="lead" style="font-size:1.11rem; line-height: 1.4">
+          Please note that you can only analyse
+          <strong style="font-weight: bold; font-size: 30px;">3</strong>
+          bank statements for free. If you want to do more,
+          <!-- <a routerLink="/billing">Please click here</a> -->
+        </p>
+
+        <div class="form-group mb-4"></div>
+
+        <button
+          style="background-color: #FF9800"
+          class="btn btn-primary btn-block"
+          type="submit"
+          (click)="gotoDashboard()"
+        >
+          Ok, go to my dashboard
+        </button>
+
+        <!-- <p class="small text-muted">
+            Don’t have an account?
+            <a href="account-sign-up.html">Sign Up here</a>
+          </p> -->
+      </div>
+
+      <div class="u-login-form text-muted py-3 mt-auto">
+        <!-- <small
+            ><i class="far fa-question-circle mr-1"></i> If you are not able
+            to recover your password, please
+            <a href="#">contact us</a>.</small
+          > -->
+      </div>
+    </div>
+
+    <!-- <div class="alert alert-primary fade show" role="alert">
+        <i class="far fa-handshake alert-icon mr-3"></i>
+        <span>This is a primary alert — check it out!</span>
+        <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div> -->
+  </div>
+</main>

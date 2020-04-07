@@ -1,0 +1,86 @@
+/* 
+
+div#outerShell {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  min-width: 330px !important;
+  padding: 2px 15px 2px 0px !important;
+}
+
+div#innerShell {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+ 
+  min-width: 300px !important;
+  padding: 2px 15px 2px 0px !important;
+}
+.dropdown-toggle::after {
+  top: 0 !important;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
+
+@media screen and (max-width: 1100px) {
+  header {
+    width: 105%;
+  }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1900px) {
+  header {
+    width: 105%;
+  }
+  div.u-header-middle {
+    display: none !important;
+  }
+  div.u-header-right {
+    margin: 0px 2px 0px 2px !important;
+    min-width: 100vw !important;
+  }
+  div#outerShell {
+    all: unset;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+    align-items: center;
+   
+    padding: 0px;
+
+ 
+  }
+}
+
+@media screen and (max-width: 760px) {
+  header {
+    width: 115%;
+  }
+  div.u-header-right {
+    margin-left: -42px !important;
+  }
+  div#innerShell {
+    justify-content: flex-start;
+  
+    padding: 0px;
+    margin-left: 50px !important;
+  }
+  div#outerShell {
+  
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 0px 5px !important;
+  }
+} */

@@ -1,0 +1,110 @@
+<div class="real-two" style="position: relative">
+  <div class="slidable-content-header">
+    <h4 class="">
+      Statement History
+    </h4>
+    <div class="ui icon input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search..." />
+    </div>
+  </div>
+
+  <div *ngIf="transactions.length == 0" class="ui placeholder placeholder-two">
+    <div class="paragraph">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div
+    *ngFor="let transaction of transactions; index as i"
+    class="slidable-content-item"
+  >
+    <div class="slidable-inner-item">
+      <img
+        (click)="downloadPdf(transaction?.file_url_remote)"
+        title="click to view analysed pdf"
+        src="../../../assets/img/pdf.svg"
+        alt=""
+        style="cursor: pointer"
+        class="slidable-img"
+      />
+      &nbsp;&nbsp;
+      <div>
+        <span
+          class="spanToEdit"
+          style="text-decoration: underline; color: rgba(0, 0, 255, 0.4); margin-right: 10px; position: relative"
+        >
+          Analytics score: {{ transaction?.analytics_score }}
+          <!-- Lorem ipsum leihei ie ... -->
+        </span>
+        <span>
+          {{ transaction?.date | date: "mediumDate" }}
+          <!-- "" Date Analysed: 10/2/2020"" -->
+        </span>
+      </div>
+    </div>
+    <div class="slidable-inner-item">
+      <button
+        (click)="showAnalysisSummary(transaction?.summary)"
+        class="ui button basic"
+      >
+        Summary
+      </button>
+      <!-- </a> -->
+    </div>
+  </div>
+
+  <div class="overlayResult">
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    "
+    >
+      <span> Summary </span>
+      <span
+        (click)="closeOverlayResultDisplay('overlayResult')"
+        class="closeBtn"
+      >
+        x</span
+      >
+    </div>
+    <div class="resultDisplay">
+      <!-- (mouseover)="enlargeFunction(sum)" -->
+      <p *ngFor="let sum of newSummary; index as i" class="summaryP">
+        <span style="margin-right:3px;"> {{ sum[0] }} </span>
+        <span> {{ sum[1] }} </span>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="showPagination" class="paginationButtonsContainer">
+    <button
+      *ngIf="count > 0"
+      (click)="getPreviousSetOfTransactions()"
+      class="ui button basic"
+    >
+      <i class="angle double left icon"></i> Prev
+    </button>
+
+    <button
+      *ngIf="nextButton"
+      (click)="getNextSetOfTransactions()"
+      class="ui button basic"
+    >
+      Next <i class="angle double right icon"></i>
+    </button>
+  </div>
+
+  <div class="noStatementHistory" *ngIf="noStatementHistory">
+    <img src="../../../assets/img/analytics_1.svg" alt="" />
+    <p>
+      You have not analysed any statements. If you do they will show up here
+      here
+    </p>
+  </div>
+</div>

@@ -1,0 +1,336 @@
+<!-- <main class="container-fluid w-100" role="main">
+  <div class="row">
+    <div
+      class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh"
+    >
+      <a class="u-login-form py-3 mb-2" routerLink="">
+        <img
+          class="img-fluid"
+          src="../../../assets/renamed/images/logo-small.png"
+          width="160"
+          alt="Credit Clan"
+          alt=""
+        />
+      </a>
+
+      <div class="u-login-form">
+        <form
+          class="mb-3"
+          [formGroup]="registrationForm"
+          (ngSubmit)="registerUser(registrationForm)"
+        >
+          <div class="mb-1">
+           
+
+            <div
+              *ngIf="alertContainer?.instance"
+              class="alert"
+              [ngClass]="alertContainer?.instance?.errorOrSuccess"
+              role="alert"
+            >
+              <i [ngClass]="alertContainer?.instance?.title"></i>
+              <span>{{ alertContainer?.instance?.message }}</span>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                data-dismiss="alert"
+                (click)="removeInstance()"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="fullname">Full name<span>*</span></label>
+            <input
+              id="fullname"
+              class="form-control"
+              name="name"
+              type="text"
+              placeholder="John Doe"
+              formControlName="fullname"
+            />
+            <div
+              *ngIf="fullname.touched && fullname.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="fullnameIsRequired()">
+                Your Name is required!</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="email">Email <span>*</span></label>
+            <input
+              id="email"
+              class="form-control"
+              name="email"
+              type="email"
+              placeholder="john.doe@example.com"
+              formControlName="email"
+            />
+            <div
+              *ngIf="email.touched && email.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="emailIsRequired()">
+                Your email is required!</small
+              >
+
+              <small style="color: #f10b0b9d;" *ngIf="emailDoesntConform()">
+                Please enter an appropriate email eg johndoe@johndoe.com</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="phone">Phone number <span>*</span></label>
+            <input
+              id="phone"
+              class="form-control"
+              name="phone"
+              type="number"
+              placeholder="+234808099990"
+              formControlName="phone"
+            />
+        
+            <div
+              *ngIf="phone.touched && phone.invalid"
+              class="ng-invalid ng-touched"
+            >
+              <small style="color: #f10b0b9d;" *ngIf="phoneNumberIsRequired()">
+                Your Phone Number is required!</small
+              >
+            
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="company">Company name</label>
+            <input
+              id="company"
+              class="form-control"
+              name="company"
+              type="text"
+              placeholder="eg: Zenlac LLC"
+              formControlName="company"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group mb-4">
+                <label for="password">Password<span>*</span></label>
+                <input
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  formControlName="password"
+                />
+                <div
+                  *ngIf="password.touched && password.invalid"
+                  class="ng-invalid ng-touched"
+                >
+                  <small style="color: #f10b0b9d;" *ngIf="passwordIsRequired()">
+                    Your password is required!</small
+                  >
+
+                  <small
+                    style="color: #f10b0b9d;"
+                    *ngIf="passwordsMustBeOfCertainLength()"
+                  >
+                    Password must be more than 6 characters!</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group mb-4">
+                <label for="confirmPassword"
+                  >Confirm password<span>*</span></label
+                >
+                <input
+                  id="confirmPassword"
+                  class="form-control"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Re-enter your password"
+                  formControlName="confirmpassword"
+                />
+
+                <div
+                  *ngIf="confirmpassword.touched && passwordsDontMatch()"
+                  class="ng-invalid ng-touched"
+                >
+                  <small style="color: #f10b0b9d;" *ngIf="passwordsDontMatch()">
+                    Your password doesnt match!</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+         
+
+          <button
+            style="background-color:#ffb300;"
+            class="btn btn-primary btn-block"
+            id="submitButton"
+            type="submit"
+            [disabled]="!registrationForm.valid"
+          >
+            Sign Up
+          </button>
+        </form>
+
+        <p class="small">
+          Already have an account? <a routerLink="/login">Login here</a>
+        </p>
+      </div>
+
+    
+    </div>
+
+    <div
+      class="col-lg-6 d-none d-lg-flex flex-column align-items-center justify-content-center bg-light"
+    >
+      <img
+        class="img-fluid position-relative u-z-index-3 mx-5"
+        src="assets/svg/mockups/SignUp.svg"
+        alt="Image description"
+      />
+
+      <figure class="u-shape u-shape--top-right u-shape--position-5">
+        <img src="assets/svg/shapes/shape-1.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-left u-shape--position-6">
+        <img src="assets/svg/shapes/shape-2.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--center-right u-shape--position-7">
+        <img src="assets/svg/shapes/shape-3.svg" alt="Image description" />
+      </figure>
+      <figure class="u-shape u-shape--bottom-left u-shape--position-8">
+        <img src="assets/svg/shapes/shape-4.svg" alt="Image description" />
+      </figure>
+    </div>
+  </div>
+</main> -->
+
+<div class="form-body">
+  <div class="website-logo">
+    <a href="index.html">
+      <div class="logo">
+        <img
+          class="logo-size"
+          src="../../../assets/img/logo-small.png"
+          alt=""
+        />
+      </div>
+    </a>
+  </div>
+  <div class="row">
+    <div class="img-holder">
+      <div class="bg"></div>
+      <div class="info-holder">
+        <img src="../../../assets/img/graphic1.svg" alt="" />
+      </div>
+    </div>
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <h3>Welcome!</h3>
+          <br />
+          <div class="page-links">
+            <a routerLink="/login">Login</a
+            ><a routerLink="/register" class="active">Register</a>
+          </div>
+          <form
+            [formGroup]="registrationForm"
+            (ngSubmit)="registerUser(registrationForm)"
+          >
+            <div
+              *ngIf="alertContainer?.instance"
+              class="alert"
+              [ngClass]="alertContainer?.instance?.errorOrSuccess"
+              role="alert"
+            >
+              <i [ngClass]="alertContainer?.instance?.title"></i>
+              <span style="line-height: 1;">{{
+                alertContainer?.instance?.message
+              }}</span>
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                data-dismiss="alert"
+                (click)="removeInstance()"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              formControlName="fullname"
+            />
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="john.doe@example.com"
+              formControlName="email"
+            />
+            <input
+              class="form-control"
+              type="number"
+              name="phone"
+              placeholder="+234808099990"
+              formControlName="phone"
+            />
+            <input
+              class="form-control"
+              type="text"
+              name="company"
+              placeholder="eg: Zenlac LLC"
+              formControlName="company"
+            />
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              formControlName="password"
+            />
+            <input
+              class="form-control"
+              type="password"
+              name="confirm-password"
+              placeholder="Re-enter your password"
+              formControlName="confirmpassword"
+            />
+            <div class="form-button">
+              <button id="submitButton" type="submit" class="ibtn">
+                Register
+              </button>
+            </div>
+          </form>
+          <div class="other-links">
+            <p>
+              Already have an account?<a routerLink="/login"
+                >&nbsp;Login here</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

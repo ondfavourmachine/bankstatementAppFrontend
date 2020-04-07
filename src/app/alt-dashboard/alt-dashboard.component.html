@@ -1,0 +1,134 @@
+<main>
+  <div class="dashboard-container row">
+    <div class="dashboard__column">
+      <div class="dashboard__profile">
+        <div class="dashboard__profile-item">
+          <img
+            src="../../../assets/img/avatar-mini.png"
+            class="dasboard__profile-avatar"
+            alt=""
+          />
+        </div>
+        <div class="dashboard__profile-item">
+          <p>
+            <i style="margin-right: 10px" class="far fa-user"></i>
+            {{ lendUser?.fullname }}
+          </p>
+          <p>
+            <i style="margin-right: 10px" class="far fa-user"></i>
+            {{ lendUser?.email }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard__column">
+      <div class="dashboard__analyse">
+        <h3>Analyse</h3>
+        <div class="dashboard__analyse-inner">
+          <img
+            src="../../../assets/img/undraw_Memory_storage_reh0.svg"
+            class="dashboard__analyse-img"
+            alt=""
+          />
+          <button
+            (click)="clickHiddenAnchorToStartAnalysisProcess($event)"
+            class="ui button fluid basic"
+          >
+            Analyse
+          </button>
+          <a hidden class="ccopen"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard__column">
+      <div class="dashboard__statement dashboard__statement--history">
+        <h3>Statement History</h3>
+        <button class="button ui basic viewjs">
+          View
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<article class="slidable-container">
+  <div class="slidable-close">
+    x
+  </div>
+  <!-- slider container -->
+  <div class="slidable-container__inner">
+    <div class="slidable-header">
+      <div class="ui placeholder placeholder-one">
+        <div *ngIf="!lendUser?.fullname" class="image header">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="slidable-header-profile real">
+        <img
+          src="../../../assets/img/avatar-mini.png"
+          class="slidable-avatar"
+          alt=""
+        />
+        <div>
+          <h5>{{ lendUser?.fullname }}</h5>
+          <small> {{ lendUser?.email }} </small>
+        </div>
+      </div>
+    </div>
+
+    <!--  content for statement history -->
+    <div class="slidable-content">
+      <app-view-statement-history></app-view-statement-history>
+    </div>
+  </div>
+
+  <!-- content for settings -->
+
+  <div class="slidable-container__inner">
+    <div class="slidable-header">
+      <div class="ui placeholder placeholder-three">
+        <div *ngIf="!lendUser?.fullname" class="image header">
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="slidable-header-profile real-second">
+        <img
+          src="../../../assets/img/avatar-mini.png"
+          class="slidable-avatar"
+          alt=""
+        />
+        <div>
+          <h5>{{ lendUser?.fullname }}</h5>
+          <small> {{ lendUser?.email }} </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="slidable-content slidable-content--padded">
+      <div class="real-second-two">
+        <app-settings></app-settings>
+      </div>
+      <div class="ui placeholder placeholder-four">
+        <div class="paragraph">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

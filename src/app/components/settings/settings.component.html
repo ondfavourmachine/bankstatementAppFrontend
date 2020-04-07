@@ -1,0 +1,98 @@
+<!-- <div class="real-second-two"> -->
+<h3>
+  Settings
+</h3>
+<div
+  *ngIf="alertContainer?.instance"
+  class="alert"
+  [ngClass]="alertContainer?.instance?.errorOrSuccess"
+  role="alert"
+>
+  <i class="far fa-handshake alert-icon mr-3"></i>
+  <span style="padding-right: 5px; line-height: 1; color: black">{{
+    alertContainer?.instance?.message
+  }}</span>
+  <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<p class="settings__p">
+  You can change settings on your account here or you can
+  <a routerLink="/user/dashboard">go to dashboard</a>
+</p>
+<div class="settings-container">
+  <div class="settings-item  active">
+    <div class="settings-item-header">
+      Change your Password?
+      <i id="atag4" class="icon angle up"></i>
+      <i class="icon edit"></i>
+    </div>
+    <form name="PasswordResetForm" action="" class="settings__form show">
+      <div class="ui input focus fluid">
+        <input name="oldpassword" type="text" placeholder="Old Password" />
+      </div>
+      <br />
+      <div class="ui input focus fluid">
+        <input name="newpassword" type="text" placeholder="New Password" />
+      </div>
+      <br />
+      <button class="button ui basic" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="settings-item">
+    <div class="settings-item-header">
+      Change Your Full Name?
+      <i id="atag1" class="icon angle up"></i>
+      <i class="icon edit"></i>
+    </div>
+    <form name="fullnameResetForm" action="" class="settings__form">
+      <br />
+      <div class="ui input focus fluid">
+        <input id="fullname" type="text" placeholder="Full Name" />
+      </div>
+      <br />
+      <button class="button ui basic" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="settings-item">
+    <div class="settings-item-header">
+      Change Your Company Name?
+      <i id="atag2" class="icon angle up"></i>
+      <i class="icon edit"></i>
+    </div>
+    <form name="companyNameResetForm" action="" class="settings__form">
+      <br />
+      <div class="ui input focus fluid">
+        <input type="text" placeholder="Company Name" />
+      </div>
+
+      <br />
+      <button class="button ui basic" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="settings-item">
+    <div class="settings-item-header">
+      Change Phone number?
+      <i id="atag3" class="icon angle up"></i>
+      <i class="icon edit"></i>
+    </div>
+    <form name="phoneResetForm" action="" class="settings__form">
+      <br />
+      <div class="ui input focus fluid">
+        <input
+          type="text"
+          onfocus="this.type='number'"
+          onblur="this.type='text'"
+          placeholder="Mobile Number"
+        />
+      </div>
+
+      <br />
+      <button class="button ui basic" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- </div> -->

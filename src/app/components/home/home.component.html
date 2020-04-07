@@ -1,0 +1,465 @@
+
+
+
+<div [ngSwitch]="screensize">
+  <div *ngSwitchCase="'desktop'">
+    <!-- Header section -->
+    <header class="header_1 " id="header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-3 col-md-3">
+            <div class="logo">
+              <a routerLink=""
+                ><img 
+                style="max-width: 75%"
+                src="../../../assets/renamed/images/logo-small.png" alt=""
+              /></a>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-7">
+            <nav class="mainmenu MenuInRight text-right">
+              <a
+                href="javascript:void(0);"
+                class="mobilemenu d-md-none d-lg-none d-xl-none"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+              <ul>
+               
+                <li class="menu-item-has-children"></li>
+                <li class="menu-item-has-children">
+                  <a
+                    (click)="registerOrDashboard($event)"
+                    id="register"
+                    class="text-white"
+                  >
+                    {{ displayAppropriateText.user }}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    id="login"
+                    class="text-white"
+                    (click)="LogOutOrSignIn($event)"
+                  >
+                    {{ displayAppropriateText.LoggedIn }}
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- 
+                        data-toggle="modal"
+                            data-target="#exampleModalCenter"
+                      -->
+          <div class="col-lg-2 col-md-2 hidden-xs">
+            <div class="navigator_btn btn_bg text-right">
+              <a
+                (click)="checkUserSubscriptionStatus($event)"
+                class="common_btn"
+                >Run analysis</a
+              >
+              <a hidden class="ccopen"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header section -->
+    <!-- Payloan_header_bg section -->
+    <section class="payloan_header_bg header_bg_2">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-6  col-md-6 col-sm-12">
+            <div class="welcome_area">
+              <div class="welcome_text">
+                <h1>
+                  We are using Artificial Intelligence to analyse<br
+                    class="br-none"
+                  />
+                  bank statements.
+                </h1>
+                <p>
+                  Predict customer behaviour from<br />
+                  any bankstatement in 5 secs.
+                </p>
+              </div>
+              <div class="welcome_button text-white">
+                <!--  data-toggle="modal"
+                              data-target="#exampleModalCenter" -->
+                <a
+                  (click)="checkUserSubscriptionStatus($event)"
+                  class="common_btn"
+                  >Run analysis</a
+                >
+              </div>
+              <small class="stmt-duration"
+                >*Bank statement of at least past 6 months</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6  col-md-6 col-sm-12" style="z-index: 30;">
+            <div class="header_img">
+              <img src="../../../assets/renamed/images/slider/5.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Payloan_header_bg section -->
+    <section class="commonSection teamProcess">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-6 col-sm-12 text-center">
+            <h2 class="sec_title">No, it is not the year 2045.<br /></h2>
+            <p class="sec_desc">
+              By then, we'll probably just read your beautiful smile to analyze
+              your records. <br />
+              Today, we start here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common section -->
+    <section class="commonSection callToAction" id="whatwedo">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-12">
+            <div class="tw-stretch-element-inside-column">
+              <div class="callImage">
+                <img src="../../../assets/renamed/images/home/3.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-12">
+            <div class="serviceArea">
+              <h3>
+                Impressive use cases for both<br class="br-none" />
+                individuals and businesses
+              </h3>
+              <p>
+                We use artificial intelligence to quickly establish income
+                patterns and spending trends, analyze credibility, predict
+                cashflow threats, make fraud checks and much more.
+              </p>
+              <!--  data-toggle="modal"
+                            data-target="#exampleModalCenter" -->
+              <a
+                class="common_btn"
+                (click)="checkUserSubscriptionStatus($event)"
+                >Run analysis</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="footer footer_2" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-md-12">
+            <aside class="widget about_widgets">
+              <!-- <img src="images/logo-small.png" alt=""/> -->
+              <p>+234-9053 53 53 33</p>
+              <p>support@creditclan.com</p>
+              <br />
+              <p>
+                Our analysis is tailor made for banks,<br />
+                lending houses, state and federal tax offices,<br />
+                embassies, auditors, accountants, etc.
+              </p>
+              <br />
+
+              <p>Start now, you can thank us later.</p>
+            </aside>
+          </div>
+          <div class="col-lg-6 col-md-6 col-md-12">
+            <aside class="widget subscribe_widgets">
+              <h3>Talk to Us.</h3>
+              <form action="#" method="post">
+                <input
+                  type="email"
+                  placeholder="support@creditclan.com"
+                  name="email"
+                />
+                <input
+                  type="text"
+                  placeholder="+234-9053 53 53 33"
+                  name="phone"
+                />
+                <input type="submit" value="Subscribe now" />
+              </form>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer section -->
+    <!-- Copyright section -->
+    <section class="copyright copyright_2">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <p>
+              Copyright <i class="icofont-copyright"></i> 2019; All Right
+              Reserved by <span style="color:#FFB300">Creditclan Inc.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div *ngSwitchCase="'mobile'">
+    <div class="mobile-body">
+      <div
+        id="navigation"
+        style="display: flex; justify-content: center; align-items: center; height: 50px; z-index: 150;"
+      >
+        <div style=" text-align: right; position: fixed;">
+          <a routerLink=""
+            ><img
+              width="150"
+              src="../../../assets/renamed/images/logo-small.png"
+              alt=""
+          /></a>
+        </div>
+
+        <div class="menu-wrap">
+          <input
+            type="checkbox"
+            class="toggler"
+            style=" cursor: pointer !important;"
+          />
+          <div class="hamburger">
+            <div></div>
+          </div>
+          <div class="menu">
+            <div>
+              <div>
+                <ul style="padding-left: 0px !important">
+                  <li><a (click)="registerOrDashboard($event)" style="cursor: pointer"> {{ displayAppropriateText.user }}</a></li>
+                  <li><a (click)="registerOrDashboard($event)" style="cursor: pointer"> {{ displayAppropriateText.LoggedIn }}</a></li>
+                  <li><a (click)="checkUserSubscriptionStatus($event)" class="common_btn" > Run Analysis</a></li>
+                  <a hidden class="ccopen"></a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payloan_header_bg section -->
+      <section class="payloan_header_bg header_bg_2">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-lg-6  col-md-6 col-sm-12">
+              <div class="welcome_area">
+                <div class="welcome_text">
+                  <h1>
+                    We are using Artificial Intelligence to analyse<br
+                      class="br-none"
+                    />
+                    bank statements.
+                  </h1>
+                  <p>
+                    Predict customer behaviour from<br />
+                    any bankstatement in 5 secs.
+                  </p>
+                </div>
+                <div class="welcome_button text-white">
+                  <!--  data-toggle="modal"
+                                data-target="#exampleModalCenter" -->
+                  <a
+                    style="z-index: 0"
+                    (click)="checkUserSubscriptionStatus($event)"
+                    class="common_btn"
+                    >Run analysis</a
+                  >
+                </div>
+                <small class="stmt-duration"
+                  >*Bank statement of at least past 6 months</small
+                >
+              </div>
+            </div>
+            <div class="col-lg-6  col-md-6 col-sm-12" style="z-index: 30;">
+              <!-- <div class="header_img">
+                <img src="../../../assets/renamed/images/slider/5.png" alt="" />
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Payloan_header_bg section -->
+
+      <!-- Payloan_header_bg section -->
+      <section class="commonSection teamProcess">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-12 text-center">
+              <h2 class="sec_title">No, it is not the year 2045.<br /></h2>
+              <p class="sec_desc">
+                By then, we'll probably just read your beautiful smile to
+                analyze your records. <br />
+                Today, we start here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Common section -->
+    <section class="commonSection callToAction" id="whatwedo">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+              <div class="tw-stretch-element-inside-column">
+                <div class="callImage">
+                  <img src="../../../assets/renamed/images/home/3.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12">
+              <div class="serviceArea">
+                <h3>
+                  Impressive use cases for both<br class="br-none" />
+                  individuals and businesses
+                </h3>
+                <p>
+                  We use artificial intelligence to quickly establish income
+                  patterns and spending trends, analyze credibility, predict
+                  cashflow threats, make fraud checks and much more.
+                </p>
+                <!--  data-toggle="modal"
+                              data-target="#exampleModalCenter" -->
+                <a
+                  class="common_btn"
+                  (click)="checkUserSubscriptionStatus($event)"
+                  >Run analysis</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- footer section -->
+    <footer class="footer footer_2" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-md-12">
+              <aside class="widget about_widgets">
+                <!-- <img src="images/logo-small.png" alt=""/> -->
+                <p>+234-9053 53 53 33</p>
+                <p>support@creditclan.com</p>
+                <br />
+                <p>
+                  Our analysis is tailor made for banks,<br />
+                  lending houses, state and federal tax offices,<br />
+                  embassies, auditors, accountants, etc.
+                </p>
+                <br />
+  
+                <p>Start now, you can thank us later.</p>
+              </aside>
+            </div>
+            <div class="col-lg-6 col-md-6 col-md-12">
+              <aside class="widget subscribe_widgets">
+                <h3>Talk to Us.</h3>
+                <form action="#" method="post">
+                  <input
+                    type="email"
+                    placeholder="support@creditclan.com"
+                    name="email"
+                  />
+                  <input
+                    type="text"
+                    placeholder="+234-9053 53 53 33"
+                    name="phone"
+                  />
+                  <input type="submit" value="Subscribe now" />
+                </form>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer section -->
+      <!-- Copyright section -->
+      <section class="copyright copyright_2">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <p>
+                Copyright <i class="icofont-copyright"></i> 2019; All Right
+                Reserved by <span style="color:#FFB300">Creditclan Inc.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal   -->
+<button
+  hidden
+  type="button"
+  id="hiddenBtn"
+  data-toggle="modal"
+  data-target="#exampleModalCenter"
+  class="btn btn-primary"
+>
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalCenterTitle">
+          Hi {{ userData?.fullname }}
+        </h1>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          id="closeModal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div
+        class="modal-body"
+        style="display: flex; justify-content: center; align-items: center; text-align: center"
+      >
+        <p>
+          You do not have any credit in your account. You therefore cannot
+          analyse any statements at this time. Please subscribe to one of our
+          <a (click)="routeToPlans()">plans</a>
+        </p>
+      </div>
+      <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+    </div>
+  </div>
+</div>

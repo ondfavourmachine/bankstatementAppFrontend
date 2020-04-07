@@ -1,0 +1,51 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '11.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm i -g @angular/cli@7.1.4
+    npm i
+    npm audit fix
+    ng build --prod --base-href="https://projects.thealmondmedia.com/micheal/recruitjob/frontend/"
+  displayName: 'Build angular code' 
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: Wireframe Directory on development server'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  
+- script: 
+    ls '$(Build.ArtifactStagingDirectory)/dist/'
+
+- task: FtpUpload@1
+  displayName: 'FTP Upload: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    credentialsOption: inputs
+
+    serverUrl: 'ftp://192.185.52.198'
+
+    username: 'almondcareersprojects@almondcareers.com'
+
+    password: 'Almondcareersprojects2018#'
+
+    rootDirectory: './dist/recruitmentHubapp/'
+
+    remoteDirectory: /micheal/recruitjob/frontend/
+
+    preservePaths: true
+

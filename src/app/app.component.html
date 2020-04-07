@@ -1,0 +1,79 @@
+<router-outlet></router-outlet>
+
+<!-- Button trigger modal -->
+<button
+  hidden
+  type="button"
+  id="triggerButton"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#globalModal"
+></button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="globalModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="globalModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalCenterTitle">
+          {{ nameOfUser }}
+        </h1>
+        <button
+          type="button"
+          id="closeBtn"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="closeModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div
+        id="insideModalBody"
+        class="modal-body"
+        style="display: flex; justify-content: center; align-items: center; text-align: center"
+      >
+        ...
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div *ngIf="generalService.fromLend" class="coverForUserFromLend">
+  <div class="ui segment" style="border: none; box-shadow: none; width: 100%;">
+    <div class="ui active inverted dimmer">
+      <div id="loadingScreen" class="ui text loader">Please wait ...</div>
+    </div>
+    <p
+      [hidden]="generalService.notAbleToLoginUserInfromLend"
+      class="errorPage"
+      style=""
+    >
+      <i
+        class="exclamation circle icon"
+        style="
+          font-size: 8rem;"
+      ></i>
+      <span class="innerSpanUnderErrorPage" style=""
+        >We couldn't log you in
+        <a href="www.lend.creditclan.com" class="anchorInsideError"
+          >Please go back</a
+        >
+      </span>
+    </p>
+  </div>
+</div>

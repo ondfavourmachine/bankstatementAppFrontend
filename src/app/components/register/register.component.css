@@ -1,0 +1,7 @@
+span {
+  color: red;
+}
+
+::placeholder {
+  color: rgb(204, 204, 204, 0.5) !important;
+}

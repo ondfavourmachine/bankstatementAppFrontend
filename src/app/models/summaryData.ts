@@ -1,0 +1,30 @@
+export interface Summary {
+  total_deposit?: number;
+  total_withdrawal?: number;
+  average_monthly_deposit?: number;
+  average_deposit_range?: string;
+  average_monthly_withdraw?: number;
+  average_withdrawal_range?: string;
+  monthly_cashFlow_average?: number;
+  monthly_cashFlow_average_range?: string;
+  renumeration_average?: number;
+  average_salary?: number;
+  last_loan?: string;
+  last_bonus?: any;
+  past_loans?: any[];
+  total_loans?: string;
+  fixed?: string;
+  most_frequent_sal_date?: any[];
+  most_frequent_salary_amount?: any[];
+  most_frequent?: string;
+  salary_date_range?: string;
+  fixed_salary?: string;
+  cash_out_flow?: Array<string>;
+  frequent_salary_amount?: string;
+  renumeration_range?: string;
+  highest_deposit_cat?: string;
+  highest_withdraw_cat?: string;
+  total_cashflow?: number;
+  total_gamble?: number;
+  total_salary?: number;
+}

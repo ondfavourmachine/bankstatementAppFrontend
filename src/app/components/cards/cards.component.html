@@ -1,0 +1,123 @@
+<main class="container-fluid w-100" role="main">
+  <div class="row">
+    <div class="mb-1">
+      <!-- Title -->
+
+      <!-- End Title -->
+      <form
+        [formGroup]="paymentForm"
+        (ngSubmit)="submitCardDetails(paymentForm)"
+      >
+        <!-- Input -->
+        <div class="js-form-message mb-6">
+          <label class="form-label">
+            Card number
+          </label>
+          <input
+            type="text"
+            formControlName="cardNumber"
+            class="form-control"
+            id="cardNumber"
+            name="cardNumber"
+            placeholder="**** **** **** ***"
+            appCreditCard
+          />
+          <small
+            *ngIf="showWrongCardDetailsError"
+            style="padding-left: 12px; color: red;"
+          >
+            Card Numbers do not contain letters. Please enter only numbers!
+          </small>
+        </div>
+        <!-- End Input -->
+
+        <div class="row">
+          <div class="col-md-8">
+            <!-- Input -->
+            <div class="js-form-message mb-6">
+              <label style="" class="form-label">
+                Card holder
+              </label>
+              <input
+                type="text"
+                formControlName="cardHolderName"
+                class="form-control"
+                name="cardHolder"
+                placeholder="Jack Wayley"
+                aria-label="Jack Wayley"
+                required=""
+                data-msg="Please enter a valid card holder."
+                data-error-class="u-has-error"
+                data-success-class="u-has-success"
+              />
+            </div>
+            <!-- End Input -->
+          </div>
+
+          <div class="col-md-2">
+            <!-- Input -->
+            <div class="js-form-message mb-6">
+              <label class="form-label">
+                Expiration
+              </label>
+              <input
+                type="text"
+                formControlName="expiryDate"
+                class="form-control"
+                name="cardExpirationDate"
+                placeholder="MM/YY"
+                aria-label="MM/YY"
+                required=""
+                data-msg="Please enter a valid date."
+                data-error-class="u-has-error"
+                data-success-class="u-has-success"
+              />
+            </div>
+            <!-- End Input -->
+          </div>
+
+          <div class="col-md-2">
+            <!-- Input -->
+            <div class="js-form-message mb-6">
+              <label class="form-label">
+                CVC
+              </label>
+              <input
+                type="text"
+                id="CVC"
+                formControlName="cvc"
+                class="form-control"
+                name="cardCVC"
+                placeholder="***"
+                aria-label="***"
+                appCvcdirective
+              />
+            </div>
+
+            <!-- End Input -->
+          </div>
+          <small *ngIf="showCvcWarning" style="padding-left: 12px; color: red;">
+            CVC do not contain letters. Please enter the 3 digits on the back of
+            your card
+          </small>
+        </div>
+
+        <!-- Button -->
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- <a href="cart.html"
+              ><small class="fas fa-arrow-left mr-2"></small> Return to cart</a
+            > -->
+          <button
+            type="submit"
+            style="margin-top: 10px;"
+            class="btn btn-primary btn-sm-wide btn-pill transition-3d-hover"
+            [disabled]="!paymentForm.valid"
+          >
+            Place order
+          </button>
+        </div>
+        <!-- End Button -->
+      </form>
+    </div>
+  </div>
+</main>
