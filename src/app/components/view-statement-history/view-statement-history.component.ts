@@ -57,12 +57,12 @@ export class ViewStatementHistoryComponent extends UserComponent
     ).subscribe(
       (val: TransactionHistory) => {
         // console.log(val);
-        if (val["transactions"].length == 0) {
+        if ((val as Object).hasOwnProperty('transactions') && val["transactions"].length == 0) {
           this.noStatementHistory = true;
           return;
         }
         this.transactions = [];
-        if (!val["end"] && val["transactions"].length > 8) {
+        if (!val["end"] && (val as Object).hasOwnProperty('transactions') &&  val["transactions"].length > 8) {
           this.nextButton = true;
           this.showPagination = true;
         } else {
@@ -113,13 +113,15 @@ export class ViewStatementHistoryComponent extends UserComponent
     // for (const transaction in transactions){
     //   Object.
     // }
-
-    transactions.forEach(transaction => {
+    if(transactions){
+      transactions.forEach(transaction => {
       // console.log(transaction);
       if (transaction["analytics_score"]) {
         approvedTransactionsToDisplay.push(transaction);
       }
     });
+    }
+    
 
     return approvedTransactionsToDisplay;
 

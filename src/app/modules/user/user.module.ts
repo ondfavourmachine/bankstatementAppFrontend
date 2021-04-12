@@ -18,6 +18,7 @@ import { AltDashboardComponent } from "../../alt-dashboard/alt-dashboard.compone
 // User routes
 import { routes } from "./user-routes";
 import { CoreModule } from "../coreModule/core/core.module";
+import { SendCustomerForAnalysisComponent } from "src/app/components/send-customer-for-analysis/send-customer-for-analysis.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CoreModule } from "../coreModule/core/core.module";
     ViewStatementHistoryComponent,
     ProfileAndEmailComponent,
     SettingsComponent,
-    AltDashboardComponent
+    AltDashboardComponent,
+    SendCustomerForAnalysisComponent
   ],
   imports: [
     CommonModule,

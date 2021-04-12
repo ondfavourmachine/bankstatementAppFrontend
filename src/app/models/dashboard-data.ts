@@ -15,3 +15,10 @@ export interface User {
   transactions_left?: number;
   free_plan_used?: number;
 }
+
+
+export interface Bank {
+  id: string;
+  bank_code: string;
+  name: string;
+}

@@ -38,6 +38,7 @@ import { CoreModule } from "./modules/coreModule/core/core.module";
 import { PaymentService } from "./services/Payments/payment.service";
 import { LOGIN_API, DASHBOARD_API, REGISTRATION_API } from "./token";
 import { GeneralApi } from "./generalApi";
+// import { SendCustomerForAnalysisComponent } from './components/send-customer-for-analysis/send-customer-for-analysis.component';
 // import { AltDashboardComponent } from './alt-dashboard/alt-dashboard.component';
 // import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
@@ -53,7 +54,8 @@ import { GeneralApi } from "./generalApi";
     ResetPasswordComponent,
     PagenotfoundComponent,
     EmailVerifiedComponent,
-    HomeComponent
+    HomeComponent,
+    
     // AltDashboardComponent
   ],
   imports: [

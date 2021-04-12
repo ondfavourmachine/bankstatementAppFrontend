@@ -1,0 +1,20 @@
+
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.form-group label{
+    margin-bottom: 0 !important;
+    font-weight: bold;
+}
+
+.form-group input{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid currentColor;
+    margin-top: -6px;
+}

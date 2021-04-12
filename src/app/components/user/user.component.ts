@@ -8,6 +8,7 @@ import { map, timeout, catchError } from "rxjs/operators";
 import { PaymentPlans, PaymentApi } from "src/app/models/PaymentPlans";
 import { TransactionHistory } from "src/app/models/transactionHistory";
 import { AuthService } from "src/app/services/auth.service";
+import { Bank } from "src/app/models/dashboard-data";
 // import { switchMap } from "rxjs/operators";
 
 @Component({
@@ -29,6 +30,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.getUserDetails();
+  
   }
 
   async fetchDashBoardDetails(): Promise<any> {
@@ -83,5 +85,14 @@ export class UserComponent implements OnInit {
 
   analyseTransID(ID: string): Promise<any> {
     return this.authservice.getRecentlyAnalysedStatements(ID);
+  }
+
+  async getAllNigerianBanks(): Promise<Bank[]>{
+
+    return new Promise((resolve, reject) => {
+      const NigerianBanks =  this.userservice.fetchBankNames();
+      resolve(NigerianBanks);
+    })
+   
   }
 }

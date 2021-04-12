@@ -7,7 +7,7 @@ import {
 } from "@angular/core";
 import { UserComponent } from "../user/user.component";
 import { defer, Subscription } from "rxjs";
-import { DashboardData } from "../../models/dashboard-data";
+import { Bank, DashboardData } from "../../models/dashboard-data";
 import { Router } from "@angular/router";
 import {
   PaymentApi,
@@ -40,7 +40,8 @@ export class DashboardComponent extends UserComponent
   dashBoardDataFromApiCall: DashboardData = {};
   currentUsersSubscription: PaymentPlans;
   dontShow: boolean = false;
-
+  userWantsToSendCustomerForBS: boolean = false;
+  NigerianBanks: Bank[] = [];
   public alertContainer: AlertObject = { instance: null };
 
   cc: any;
@@ -56,7 +57,7 @@ export class DashboardComponent extends UserComponent
     this.origin = sessionStorage.getItem("origin");
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     window.addEventListener("resize", e => {
       this.screensize = this.generalservice.changeScreenDisplay();
       // console.log(this.screensize);
@@ -69,6 +70,9 @@ export class DashboardComponent extends UserComponent
         this.generalservice.broadCastGetTransactionHistoryMessage('fetch history')
       }
     });
+
+    this.NigerianBanks = await super.getAllNigerianBanks();
+    console.log(this.NigerianBanks);
   }
 
   ngAfterViewInit() {
@@ -723,6 +727,7 @@ export class DashboardComponent extends UserComponent
 
 
   startBSForCustomer(){
+    this.userWantsToSendCustomerForBS = true;
     document.getElementById('startBSintiationForCustomer').click();
   }
 }
