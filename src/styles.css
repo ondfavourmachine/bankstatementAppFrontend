@@ -426,7 +426,7 @@ ion-icon[name="person-circle-outline"] {
   flex-direction: column;
 }
 
-.dashboard__settings {
+.dashboard__settings, .initiate_analysis {
   display: block;
   height: 200px;
   background: #ffffff;

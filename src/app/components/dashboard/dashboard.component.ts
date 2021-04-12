@@ -720,6 +720,14 @@ export class DashboardComponent extends UserComponent
   removeInstance() {
     delete this.alertContainer["instance"];
   }
+
+
+  startBSForCustomer(){
+    document.getElementById('startBSintiationForCustomer').click();
+  }
 }
+
+
+
 
 // C:\Users\Ndubisi\Downloads\ngrok-stable-windows-amd64
