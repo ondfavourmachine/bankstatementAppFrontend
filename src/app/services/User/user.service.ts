@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { GeneralService } from "../general.service";
-import { Observable } from "rxjs";
+import { from, Observable } from "rxjs";
 import { Bank, DashboardData } from "../../models/dashboard-data";
 // import { inject } from "@angular/core/testing";
 import { TransactionHistory } from "src/app/models/transactionHistory";
@@ -58,32 +58,60 @@ export class UserService {
 
   confirmAccountDetailsOfParent(obj: { bank_code: any; account_number: any }) {
     let url = "https://mobile.creditclan.com/webapi/v1/account/resolve";
-    let httpHeaders = new HttpHeaders({
-      "x-api-key": "z2BhpgFNUA99G8hZiFNv77mHDYcTlecgjybqDACv"
-    });
+    const confirmAccount = async (obj) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: {
+          "x-api-key": "z2BhpgFNUA99G8hZiFNv77mHDYcTlecgjybqDACv"
+        }
+      })
 
-    return this.http
-      .post(url, obj, { headers: httpHeaders })
-      .pipe(timeout(50000));
+     const banks = await res.json();
+     return banks;
+    }
+
+    const obs = from(confirmAccount(obj));
+    return obs;
   }
 
 
-  fetchBankNames(): Bank[] {
-    let allBanks = JSON.parse(sessionStorage.getItem("allBanks"));
-    if (sessionStorage.getItem("allBanks")) {
-      return allBanks["data"] as Array<Bank>;
-    }
+  fetchBankNames(): Observable<any>{ 
     let url = "https://mobile.creditclan.com/webapi/v1/banks";
-    let httpHeaders = new HttpHeaders({
-      "x-api-key": "z2BhpgFNUA99G8hZiFNv77mHDYcTlecgjybqDACv"
-    });
-    this.http.get(url, { headers: httpHeaders }).subscribe(
-      val => {
-        // console.log(this.banks);
-        sessionStorage.setItem("allBanks", JSON.stringify(val));
-        return [...val["data"]];
-      },
-      err => console.log(err)
-    );
+    const getNigerianBanks = async () => {
+      const res = await fetch(url, {
+        headers: {
+          "x-api-key": "z2BhpgFNUA99G8hZiFNv77mHDYcTlecgjybqDACv"
+        }
+      })
+
+     const banks = await res.json();
+     return banks;
+    }
+
+    const obs = from(getNigerianBanks());
+    return obs;
+        
+  }
+
+
+
+  submitCustomerForBSAnalysis(form): Observable<any>{
+
+    let url = "https://dataupload.creditclan.com/api/v3/bankstatement/initiate";
+    const initiateBSForCustomer = async (form) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(form),
+        headers: {
+          "x-api-key": "z2BhpgFNUA99G8hZiFNv77mHDYcTlecgjybqDACv"
+        }
+      })
+
+     const banks = await res.json();
+     return banks;
+    }
+    const obs = from(initiateBSForCustomer(form));
+    return obs;
   }
 }

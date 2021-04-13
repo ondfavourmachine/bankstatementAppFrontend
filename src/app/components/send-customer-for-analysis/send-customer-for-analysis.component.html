@@ -1,7 +1,7 @@
 
 
 <div>
-    <form [formGroup]="customerDetailsForm" (ngSubmit)="submitForm(customerDetailsForm)">
+    <form [formGroup]="customerDetailsForm" (ngSubmit)="submitForm(customerDetailsForm, $event)">
         
         <div class="form-group">
             <label for="exampleFormControlSelect1">Bank Name</label>

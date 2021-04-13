@@ -87,12 +87,13 @@ export class UserComponent implements OnInit {
     return this.authservice.getRecentlyAnalysedStatements(ID);
   }
 
-  async getAllNigerianBanks(): Promise<Bank[]>{
+  getAllNigerianBanks(){
 
-    return new Promise((resolve, reject) => {
-      const NigerianBanks =  this.userservice.fetchBankNames();
-      resolve(NigerianBanks);
-    })
+    return this.userservice.fetchBankNames();
+    // return new Promise((resolve, reject) => {
+    //   const NigerianBanks =  this.userservice.fetchBankNames();
+    //   resolve(NigerianBanks);
+    // })
    
   }
 }

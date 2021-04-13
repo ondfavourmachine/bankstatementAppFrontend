@@ -71,8 +71,22 @@ export class DashboardComponent extends UserComponent
       }
     });
 
-    this.NigerianBanks = await super.getAllNigerianBanks();
-    // console.log(this.NigerianBanks);
+    
+    if (sessionStorage.getItem("allBanks")) {
+      let allBanks = JSON.parse(sessionStorage.getItem("allBanks"));
+      this.NigerianBanks = allBanks["data"] as Array<Bank>;
+      return;
+    }
+
+     super.getAllNigerianBanks().subscribe(
+       val => {
+         sessionStorage.setItem("allBanks", JSON.stringify(val));
+         this.NigerianBanks = val.data;
+       },
+       err => {
+         console.log({err});
+       }
+     )
   }
 
   ngAfterViewInit() {
