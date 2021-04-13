@@ -72,7 +72,7 @@ export class DashboardComponent extends UserComponent
     });
 
     this.NigerianBanks = await super.getAllNigerianBanks();
-    console.log(this.NigerianBanks);
+    // console.log(this.NigerianBanks);
   }
 
   ngAfterViewInit() {

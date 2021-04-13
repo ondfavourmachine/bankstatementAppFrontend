@@ -19,6 +19,7 @@ import { AltDashboardComponent } from "../../alt-dashboard/alt-dashboard.compone
 import { routes } from "./user-routes";
 import { CoreModule } from "../coreModule/core/core.module";
 import { SendCustomerForAnalysisComponent } from "src/app/components/send-customer-for-analysis/send-customer-for-analysis.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { SendCustomerForAnalysisComponent } from "src/app/components/send-custom
   imports: [
     CommonModule,
     SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild(routes),
     CoreModule,
     Angular4PaystackModule

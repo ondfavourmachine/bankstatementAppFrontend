@@ -9,12 +9,42 @@
 
 .form-group label{
     margin-bottom: 0 !important;
-    font-weight: bold;
+    font-size: 1rem;
 }
 
-.form-group input{
+.form-group input, .form-group select{
     border: 0;
     border-radius: 0;
     border-bottom: 1px solid currentColor;
     margin-top: -6px;
+    padding-left: 0.01rem;
+}
+
+.form-check{
+    line-height: 1.2rem !important;
+}
+
+.form-check-label{
+    padding: 2px;
+}
+
+input, select{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.spinner{
+    z-index: 5;
+    bottom: 1%;
+    right: 1.5%;
+}
+
+.spinner i{
+    font-size: 2rem;
+    color: #393799;
+}
+
+button[type="submit"]{
+    background-color: #393799 !important;
+    font-size: 1.3rem;
 }
